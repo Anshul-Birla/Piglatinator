@@ -8,11 +8,87 @@
 class PigLatinator
 {
    String myInput, pigLatin;
+   int strLength;
    
    public PigLatinator(String str)
    {
        myInput = str;
        pigLatin = "";
+       strLength = str.length();
+       checkRoute();
     }
     
+   private void checkRoute()
+   {
+       String lowertemp = myInput.toLowerCase();
+       String temp, temp2 = "";
+       int vovelCheck, vovelSpot;
+       for (int x = 0; x<strLength;x++)
+       {
+            temp = lowertemp.substring(x, x+1);
+            if  (temp.compareTo("a") >= 0 && temp.compareTo("z") <= 0)
+            {
+               temp2+=temp;
+            }
+           else 
+           {
+               if (temp.equals(" "))
+               {
+                   vovelSpot = checkVovel(temp2);
+                   if (vovelSpot == 0)
+                   {
+                     //run method for if firstletter vovel   
+                      temp2 = "";
+                    }
+                   else 
+                       
+                    {
+                        if (vovelSpot <= -1)
+                        {
+                            //run method thatoccurs if no vovels
+                            temp2 = "";
+                        }
+                        else 
+                        {
+                           //run method that occurs if there are vovels
+                           temp2 = "";
+                        }
+                    }
+                
+        }
+    }
 }
+}
+
+    private int checkVovel(String str)
+    {
+        int spot = -1, temp;
+        spot = str.indexOf("a");
+        temp = str.indexOf("e");
+        if ((spot<temp && temp>=0)||)
+        {
+            spot = temp;
+        }
+        temp = str.indexOf("i");
+        if (spot>temp && temp>=0)
+        {
+            spot = temp;
+        }
+        temp = str.indexOf("u");
+        if (spot>temp && temp>0)
+        {
+            spot = temp;
+        }
+        temp = str.indexOf("o");
+        if (spot>temp && temp>0)
+        {
+            spot = temp;
+        }
+        return spot;
+        
+    }
+}
+
+
+
+

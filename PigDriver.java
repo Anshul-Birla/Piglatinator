@@ -15,6 +15,7 @@ public class PigDriver
         System.out.println("This turns your English phrase into PigLatin!");
         System.out.print("Enter the phrase you want to be translated:");
         input = keyboard.readLine();
+        PigLatinator pig = new PigLatinator(input);
         
         
     }
