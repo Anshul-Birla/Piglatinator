@@ -1,4 +1,4 @@
-
+import chn.util.*;
 /**
  * Write a description of class PigDriver here.
  *
@@ -9,6 +9,13 @@ public class PigDriver
 {
     public static void main(String args[])
     {
+        ConsoleIO keyboard = new ConsoleIO();
+        String input;
+        
+        System.out.println("This turns your English phrase into PigLatin!");
+        System.out.print("Enter the phrase you want to be translated:");
+        input = keyboard.readLine();
+        
         
     }
 }

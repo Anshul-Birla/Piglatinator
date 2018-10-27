@@ -7,5 +7,12 @@
  */
 class PigLatinator
 {
+   String myInput, pigLatin;
+   
+   public PigLatinator(String str)
+   {
+       myInput = str;
+       pigLatin = "";
+    }
     
 }
