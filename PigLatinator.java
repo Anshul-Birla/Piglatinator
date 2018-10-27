@@ -21,7 +21,7 @@ class PigLatinator
    private void checkRoute()
    {
        String lowertemp = myInput.toLowerCase();
-       String temp, temp2 = "";
+       String temp, temp2 = "", upperTemp = "";
        int vovelCheck, vovelSpot;
        for (int x = 0; x<strLength;x++)
        {
@@ -29,6 +29,7 @@ class PigLatinator
             if  (temp.compareTo("a") >= 0 && temp.compareTo("z") <= 0)
             {
                temp2+=temp;
+               upperTemp += myInput.substring(x, x+1);
             }
            else 
            {
@@ -39,6 +40,7 @@ class PigLatinator
                    {
                      //run method for if firstletter vovel   
                       temp2 = "";
+                      upperTemp = "";
                     }
                    else 
                        
@@ -47,11 +49,13 @@ class PigLatinator
                         {
                             //run method thatoccurs if no vovels
                             temp2 = "";
+                            upperTemp = "";
                         }
                         else 
                         {
                            //run method that occurs if there are vovels
                            temp2 = "";
+                           upperTemp = "";
                         }
                     }
                 
@@ -91,6 +95,10 @@ class PigLatinator
         return spot;
         
     }
+    
+    private void firstVovel(String str)
+    {
+        
 }
 
 
