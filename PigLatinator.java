@@ -38,7 +38,7 @@ class PigLatinator
                    vovelSpot = checkVovel(temp2);
                    if (vovelSpot == 0)
                    {
-                     //run method for if firstletter vovel   
+                     firstVovel(upperTemp);  
                       temp2 = "";
                       upperTemp = "";
                     }
@@ -47,7 +47,7 @@ class PigLatinator
                     {
                         if (vovelSpot <= -1)
                         {
-                            //run method thatoccurs if no vovels
+                            noVovel(upperTemp);
                             temp2 = "";
                             upperTemp = "";
                         }
@@ -98,7 +98,16 @@ class PigLatinator
     
     private void firstVovel(String str)
     {
-        
+        pigLatin += (str+"yay");
+    }
+    
+    private void noVovel(String str)
+    {
+        pigLatin += (str+"ay");
+    }
+    
+    private void vovel(Stirng str, int place)
+    {
 }
 
 
