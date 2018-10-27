@@ -26,7 +26,8 @@ class PigLatinator
        for (int x = 0; x<strLength;x++)
        {
             temp = lowertemp.substring(x, x+1);
-            if  (temp.compareTo("a") >= 0 && temp.compareTo("z") <= 0)
+            if ((lowertemp.compareTo("!") >= 0 && lowertemp.compareTo("?") <= 0) || 
+                (lowertemp.compareTo("a") >= 0 && lowertemp.compareTo("z") <= 0))
             {
                temp2+=temp;
                upperTemp += myInput.substring(x, x+1);
