@@ -65,22 +65,26 @@ class PigLatinator
         int spot = -1, temp;
         spot = str.indexOf("a");
         temp = str.indexOf("e");
-        if ((spot<temp && temp>=0)||)
+        if ((spot<=-1 && temp>=0)&&(temp>spot)||
+            (spot>=0 && temp>=0)&&(spot>temp))
         {
             spot = temp;
         }
         temp = str.indexOf("i");
-        if (spot>temp && temp>=0)
+         if ((spot<=-1 && temp>=0)&&(temp>spot)||
+            (spot>=0 && temp>=0)&&(spot>temp))
         {
             spot = temp;
         }
         temp = str.indexOf("u");
-        if (spot>temp && temp>0)
+         if ((spot<=-1 && temp>=0)&&(temp>spot)||
+            (spot>=0 && temp>=0)&&(spot>temp))
         {
             spot = temp;
         }
         temp = str.indexOf("o");
-        if (spot>temp && temp>0)
+        if ((spot<=-1 && temp>=0)&&(temp>spot)||
+            (spot>=0 && temp>=0)&&(spot>temp))
         {
             spot = temp;
         }
