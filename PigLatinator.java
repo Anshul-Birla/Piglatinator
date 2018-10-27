@@ -109,10 +109,13 @@ class PigLatinator
     private void vovel(String str, int place)
     {
         String capit = str.substring(0,1);
-        String end, start;
+        String end, start, temp;
         if (capit.compareTo("A")>=0 && capit.compareTo("Z")<=0)
         {
             end = str.substring(place);
+            temp = end.substring(0,1);
+            temp = temp.toUpperCase();
+            end = temp + str.substring(place+1);
             start = capit.toLowerCase() + str.substring(1, place);
             pigLatin += (end+start+"ay ");
             
