@@ -12,7 +12,7 @@ class PigLatinator
    
    public PigLatinator(String str)
    {
-       myInput = str;
+       myInput = str+ " ";
        pigLatin = "";
        strLength = str.length();
        checkRoute();
@@ -108,6 +108,21 @@ class PigLatinator
     
     private void vovel(Stirng str, int place)
     {
+        String capit = str.substring(0,1);
+        String end, start;
+        if (capit.compareTo("A")>=0 && capit.compareTo("Z")<=0)
+        {
+            end = str.substring(place);
+            start = capit.toLowerCase() + str.substring(1, place);
+            pigLatin += (end+start+"ay");
+            
+        }   
+        else
+        {
+         end = str.substring(place);
+         start = str.substring(0,place);
+        pigLatin += (end + start + "ay");
+    }
 }
 
 
