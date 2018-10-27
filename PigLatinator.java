@@ -53,7 +53,7 @@ class PigLatinator
                         }
                         else 
                         {
-                           //run method that occurs if there are vovels
+                           vovel(upperTemp, vovelSpot);
                            temp2 = "";
                            upperTemp = "";
                         }
@@ -98,15 +98,15 @@ class PigLatinator
     
     private void firstVovel(String str)
     {
-        pigLatin += (str+"yay");
+        pigLatin += (str+"yay ");
     }
     
     private void noVovel(String str)
     {
-        pigLatin += (str+"ay");
+        pigLatin += (str+"ay ");
     }
     
-    private void vovel(Stirng str, int place)
+    private void vovel(String str, int place)
     {
         String capit = str.substring(0,1);
         String end, start;
@@ -121,10 +121,10 @@ class PigLatinator
         {
          end = str.substring(place);
          start = str.substring(0,place);
-        pigLatin += (end + start + "ay");
+        pigLatin += (end + start + "ay ");
     }
 }
-
+}
 
 
 
