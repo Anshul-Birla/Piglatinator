@@ -1,9 +1,9 @@
 
 /**
- * Write a description of class PigLatinator here.
+ * Necessary methods to make pigLatin conversion happen.
  *
- * @author (your name)
- * @version (a version number or a date)
+ * @Anshul
+ * @V1
  */
 class PigLatinator
 {
@@ -26,7 +26,9 @@ class PigLatinator
   //main function, controls what methods are used to create the piglatin form 
    private void checkRoute()
    {
-       String temp, temp2 = "", upperTemp = "";
+       String temp;
+       String temp2 = "";
+       String upperTemp = "";
        int vovelCheck, vovelSpot;
        for (int x = 1; x<=strLength;x++)
        {
@@ -38,12 +40,15 @@ class PigLatinator
             }
           else 
            {
+             //done so just a punctuation mark is not converted into piglatin
              if (temp2.equals(""))
                {
                 pigLatin+= temp;
                }
+               
               else
                {
+                //this branch checks if a punctation mark was read, and if so, does the necessary steps to ensure the word is correctly formatted
                    if (temp.compareTo("!")>=0 && temp.compareTo("@")<=0)
                    {
                        vovelSpot = checkVovel(temp2);
@@ -110,7 +115,8 @@ class PigLatinator
   //this checks where the first vovel is in a word. Used by checkroute to check which method to use
  private int checkVovel(String str)
   {
-        int spot = -1, temp;
+        int spot = -1;
+        int temp;
         spot = str.indexOf("a");
         temp = str.indexOf("e");
         
