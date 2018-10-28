@@ -137,12 +137,12 @@ class PigLatinator
     
     private void firstVovel(String str)
     {
-        pigLatin += (str+"yay ");
+        pigLatin += (str+"yay");
     }
     
     private void noVovel(String str)
     {
-        pigLatin += (str+"ay ");
+        pigLatin += (str+"ay");
     }
     
     private void vovel(String str, int place)
