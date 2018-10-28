@@ -37,95 +37,100 @@ class PigLatinator
                 pigLatin+= temp;
                }
               else
-                {
-               if (temp.compareTo("!")>=0 && temp.compareTo("@")<=0)
                {
-                   vovelSpot = checkVovel(temp2);
-                   if (vovelSpot == 0)
+                   if (temp.compareTo("!")>=0 && temp.compareTo("@")<=0)
                    {
-                     firstVovel(upperTemp);  
-                      temp2 = "";
-                      upperTemp = "";
-                    }
-                   else 
-                       
-                    {
-                        if (vovelSpot <= -1)
-                        {
-                            noVovel(upperTemp);
-                            temp2 = "";
-                            upperTemp = "";
-                        }
-                        else 
-                        {
-                           vovel(upperTemp, vovelSpot);
+                       vovelSpot = checkVovel(temp2);
+                       if (vovelSpot == 0)
+                       {
+                           firstVovel(upperTemp);  
                            temp2 = "";
                            upperTemp = "";
                         }
+                        else    
+                        {
+                            if (vovelSpot <= -1)
+                            {
+                                noVovel(upperTemp);
+                                temp2 = "";
+                                upperTemp = "";
+                            }
+                                else 
+                                {
+                                   vovel(upperTemp, vovelSpot);
+                                   temp2 = "";
+                                   upperTemp = "";
+                                }
                     }
                    pigLatin+=temp;
                    temp2 = "";
                    upperTemp = "";
                 
                 }
-            else 
-            {
-               if (temp.equals(" "))
-               {
-                   vovelSpot = checkVovel(temp2);
-                   if (vovelSpot == 0)
-                   {
-                     firstVovel(upperTemp);  
-                      temp2 = "";
-                      upperTemp = "";
-                    }
-                   else 
-                       
+                else 
+                {
+                    if (temp.equals(" "))
                     {
-                        if (vovelSpot <= -1)
+                        vovelSpot = checkVovel(temp2);
+                        if (vovelSpot == 0)
                         {
-                            noVovel(upperTemp);
+                            firstVovel(upperTemp);  
                             temp2 = "";
                             upperTemp = "";
                         }
-                        else 
+                        else   
                         {
-                           vovel(upperTemp, vovelSpot);
-                           pigLatin+= " ";
-                           temp2 = "";
-                           upperTemp = "";
+                            if (vovelSpot <= -1)
+                           {
+                               noVovel(upperTemp);
+                               temp2 = "";
+                               upperTemp = "";
+                            }
+                            else 
+                            {
+                                vovel(upperTemp, vovelSpot);
+                                pigLatin+= " ";
+                                temp2 = "";
+                                upperTemp = "";
+                            }
                         }
                     }
                 }
             }
         }
     }
-}
-}
+  }
 
-    private int checkVovel(String str)
-    {
+ private int checkVovel(String str)
+  {
         int spot = -1, temp;
         spot = str.indexOf("a");
         temp = str.indexOf("e");
+        
         if ((spot<=-1 && temp>=0)&&(temp>spot)||
             (spot>=0 && temp>=0)&&(spot>temp))
         {
             spot = temp;
         }
+        
         temp = str.indexOf("i");
+        
          if ((spot<=-1 && temp>=0)&&(temp>spot)||
             (spot>=0 && temp>=0)&&(spot>temp))
         {
             spot = temp;
         }
+        
         temp = str.indexOf("u");
+        
          if ((spot<=-1 && temp>=0)&&(temp>spot)||
             (spot>=0 && temp>=0)&&(spot>temp))
         {
             spot = temp;
         }
+        
         temp = str.indexOf("o");
+        
         if ((spot<=-1 && temp>=0)&&(temp>spot)||
             (spot>=0 && temp>=0)&&(spot>temp))
         {
@@ -133,20 +138,20 @@ class PigLatinator
         }
         return spot;
         
-    }
+ }
     
-    private void firstVovel(String str)
-    {
-        pigLatin += (str+"yay");
-    }
+ private void firstVovel(String str)
+  {
+    pigLatin += (str+"yay");
+  }
     
-    private void noVovel(String str)
-    {
-        pigLatin += (str+"ay");
-    }
+ private void noVovel(String str)
+  {
+   pigLatin += (str+"ay");
+  }
     
-    private void vovel(String str, int place)
-    {
+ private void vovel(String str, int place)
+  {
         String capit = str.substring(0,1);
         String end, start, temp;
         if (capit.compareTo("A")>=0 && capit.compareTo("Z")<=0)
@@ -165,13 +170,13 @@ class PigLatinator
          start = str.substring(0,place);
         pigLatin += (end + start + "ay");
     }
-}
+  }
 
-    public String run()
-    {
-        checkRoute();
-        return pigLatin;
-    }
+  public String run()
+  {
+    checkRoute();
+    return pigLatin;
+  }
 }
 
 
