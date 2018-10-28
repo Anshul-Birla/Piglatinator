@@ -7,37 +7,36 @@
  */
 class PigLatinator
 {
-   String myInput, pigLatin;
+   String myInput, pigLatin, lowertemp;
    int strLength;
    
    public PigLatinator(String str)
    {
        myInput = str+ " ";
        pigLatin = "";
-       strLength = str.length();
-       checkRoute();
+       lowertemp = myInput.toLowerCase();
+       strLength = lowertemp.length();
     }
     
    private void checkRoute()
    {
-       String lowertemp = myInput.toLowerCase();
        String temp, temp2 = "", upperTemp = "";
        int vovelCheck, vovelSpot;
-       for (int x = 0; x<=strLength-1;x++)
+       for (int x = 1; x<=strLength;x++)
        {
-            temp = lowertemp.substring(x, x+1);
-            if (!(temp.compareTo(" ")>=0 && temp.compareTo("@")<=0))
+          temp = lowertemp.substring(x-1, x);
+          if (!(temp.compareTo(" ")>=0 && temp.compareTo("@")<=0))
             {
                temp2+=temp;
-               upperTemp += myInput.substring(x, x+1);
+               upperTemp += myInput.substring(x-1,x);
             }
-           else 
+          else 
            {
-               if (temp2.equals(""))
+             if (temp2.equals(""))
                {
-                   pigLatin+= temp;
-                }
-                else
+                pigLatin+= temp;
+               }
+              else
                 {
                if (temp.compareTo("!")>=0 && temp.compareTo("@")<=0)
                {
@@ -66,7 +65,7 @@ class PigLatinator
                     }
                    pigLatin+=temp;
                    temp2 = "";
-                   lowertemp = "";
+                   upperTemp = "";
                 
                 }
             else 
@@ -92,6 +91,7 @@ class PigLatinator
                         else 
                         {
                            vovel(upperTemp, vovelSpot);
+                           pigLatin+= " ";
                            temp2 = "";
                            upperTemp = "";
                         }
@@ -156,16 +156,22 @@ class PigLatinator
             temp = temp.toUpperCase();
             end = temp + str.substring(place+1);
             start = capit.toLowerCase() + str.substring(1, place);
-            pigLatin += (end+start+"ay ");
+            pigLatin += (end+start+"ay");
             
         }   
         else
         {
          end = str.substring(place);
          start = str.substring(0,place);
-        pigLatin += (end + start + "ay ");
+        pigLatin += (end + start + "ay");
     }
 }
+
+    public String run()
+    {
+        checkRoute();
+        return pigLatin;
+    }
 }
 
 

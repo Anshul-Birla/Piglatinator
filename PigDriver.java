@@ -17,6 +17,6 @@ public class PigDriver
         input = keyboard.readLine();
         PigLatinator pig = new PigLatinator(input);
         
-        
+        System.out.print("PigLatin - "+pig.run());
     }
 }
