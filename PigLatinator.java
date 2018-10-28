@@ -23,16 +23,54 @@ class PigLatinator
        String lowertemp = myInput.toLowerCase();
        String temp, temp2 = "", upperTemp = "";
        int vovelCheck, vovelSpot;
-       for (int x = 0; x<strLength;x++)
+       for (int x = 0; x<=strLength-1;x++)
        {
             temp = lowertemp.substring(x, x+1);
-            if (!(temp.equals(" ")))
+            if (!(temp.compareTo(" ")>=0 && temp.compareTo("@")<=0))
             {
                temp2+=temp;
                upperTemp += myInput.substring(x, x+1);
             }
            else 
            {
+               if (temp2.equals(""))
+               {
+                   pigLatin+= temp;
+                }
+                else
+                {
+               if (temp.compareTo("!")>=0 && temp.compareTo("@")<=0)
+               {
+                   vovelSpot = checkVovel(temp2);
+                   if (vovelSpot == 0)
+                   {
+                     firstVovel(upperTemp);  
+                      temp2 = "";
+                      upperTemp = "";
+                    }
+                   else 
+                       
+                    {
+                        if (vovelSpot <= -1)
+                        {
+                            noVovel(upperTemp);
+                            temp2 = "";
+                            upperTemp = "";
+                        }
+                        else 
+                        {
+                           vovel(upperTemp, vovelSpot);
+                           temp2 = "";
+                           upperTemp = "";
+                        }
+                    }
+                   pigLatin+=temp;
+                   temp2 = "";
+                   lowertemp = "";
+                
+                }
+            else 
+            {
                if (temp.equals(" "))
                {
                    vovelSpot = checkVovel(temp2);
@@ -58,7 +96,8 @@ class PigLatinator
                            upperTemp = "";
                         }
                     }
-                
+                }
+            }
         }
     }
 }
