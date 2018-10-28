@@ -7,10 +7,15 @@
  */
 class PigLatinator
 {
+    //initialization 
    String myInput, pigLatin, lowertemp;
    int strLength;
    
-   public PigLatinator(String str)
+   /**
+    * Constructor that initializes everything necessary for multiple methods to use
+    * @param str              input from user
+    */
+  public PigLatinator(String str)
    {
        myInput = str+ " ";
        pigLatin = "";
@@ -18,6 +23,7 @@ class PigLatinator
        strLength = lowertemp.length();
     }
     
+  //main function, controls what methods are used to create the piglatin form 
    private void checkRoute()
    {
        String temp, temp2 = "", upperTemp = "";
@@ -101,6 +107,7 @@ class PigLatinator
     }
   }
 
+  //this checks where the first vovel is in a word. Used by checkroute to check which method to use
  private int checkVovel(String str)
   {
         int spot = -1, temp;
@@ -139,21 +146,26 @@ class PigLatinator
         return spot;
         
  }
-    
+ 
+ //method that runs if first letter of word is a vovel
  private void firstVovel(String str)
   {
     pigLatin += (str+"yay");
   }
-    
+  
+ //method that runs if no letter of word is a vovel
  private void noVovel(String str)
   {
    pigLatin += (str+"ay");
   }
     
+  //method that runs if a middle letter of the word is a vovel
  private void vovel(String str, int place)
   {
         String capit = str.substring(0,1);
         String end, start, temp;
+        
+        //this takes care of capitilizing the word correctly 
         if (capit.compareTo("A")>=0 && capit.compareTo("Z")<=0)
         {
             end = str.substring(place);
@@ -172,6 +184,10 @@ class PigLatinator
     }
   }
 
+  /**
+   * Runs the necessary methods
+   * @return pigLatin              pigLatinated version of inputed string
+   */
   public String run()
   {
     checkRoute();
